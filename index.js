@@ -40,7 +40,7 @@ async function scrapeStickerUrls(context) {
     index++;
     context.spinner.text = `Scraping stickers (${index}/${total})...`;
 
-    await elementHandle.click();
+    await page.evaluate((elementHandle) => { elementHandle.click(); }, elementHandle);
     await sleep(animatedWaitDelay);
     const canvasHandles = await page.$$("canvas[data-apng-src]");
 
